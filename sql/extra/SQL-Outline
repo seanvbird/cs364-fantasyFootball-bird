@@ -1,0 +1,72 @@
+LEAGUE
+- league_id (PK)
+- league_name
+- season_year
+- draft_date
+- scoring_type
+
+TEAM
+- team_id (PK)
+- team_name
+- owner_name
+- league_id (FK)
+
+PLAYER
+- player_id (PK)
+- first_name
+- last_name
+- position
+- nfl_team
+- status
+- bye_week
+
+ROSTER
+- roster_id (PK)
+- team_id (FK)
+- player_id (FK)
+- acquired_week
+- dropped_week (nullable)
+
+LINEUP
+- lineup_id (PK)
+- team_id (FK)
+- player_id (FK)
+- week_number
+- slot
+MATCHUP
+
+- matchup_id (PK)
+- week_number
+- home_team_id (FK)
+- away_team_id (FK)
+- home_score
+- away_score
+- winner_team_id (FK)
+
+PLAYER_STATS
+- stat_id (PK)
+- player_id (FK)
+- week_number
+- passing_yards
+- rushing_yards
+- receiving_yards
+- touchdowns
+- fantasy_points
+
+Relationships
+LEAGUE → one League has many Teams
+LEAGUE → one League has many Matchups (through week_number)
+TEAM → one Team belongs to one League
+TEAM → one Team has many Roster entries
+TEAM → one Team has many Lineup entries
+TEAM → one Team plays many Matchups (as home or away)
+PLAYER → one Player can be on many Rosters (over time)
+PLAYER → one Player has many Lineup entries
+PLAYER → one Player has many Player Stats
+ROSTER → resolves many-to-many between Team and Player
+LINEUP → resolves who starts each week for each Team
+MATCHUP → one Matchup belongs to one week
+MATCHUP → one Matchup has one home Team and one away Team
+MATCHUP → one Matchup has one winner Team
+PLAYER_STATS → one Player has many weekly stats
+PLAYER_STATS → one stat entry belongs to one Player and one week

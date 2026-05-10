@@ -1,0 +1,10 @@
+# Copy to application.properties and fill in real values. Do NOT commit application.properties.
+server.port=4567
+spring.datasource.url=jdbc:mysql://your-host:3306/your_database
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.hikari.maximum-pool-size=5
+spring.datasource.hikari.connection-timeout=30000
+spring.jackson.default-property-inclusion=non_null
+

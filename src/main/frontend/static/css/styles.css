@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@700&display=swap');
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+}
+
+/* Oswald on the league/landing page titles for a condensed sport-feel vs Inter elsewhere. */
+#leagueNameHeader,
+#leaguesPageHeader {
+  font-family: 'Oswald', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Bootstrap CSS variable overrides — one :root block re-skins every component at once. */
+:root {
+  /* Color palette */
+  --bs-primary:                  #C9A96E;
+  --bs-primary-rgb:              201, 169, 110;
+  --bs-danger:                   #E05C5C;
+  --bs-danger-rgb:               224, 92, 92;
+
+  /* Body */
+  --bs-body-bg:                  #242220;
+  --bs-body-color:               #F5F0EB;
+  --bs-secondary-color:          #9E9890;
+
+  /* Surfaces */
+  --bs-card-bg:                  #2E2C2A;
+  --bs-card-border-color:        #403D3A;
+  --bs-modal-bg:                 #2E2C2A;
+  --bs-modal-border-color:       #403D3A;
+
+  /* Borders */
+  --bs-border-color:             #403D3A;
+  --bs-border-color-translucent: rgba(64, 61, 58, 0.8);
+
+  /* Forms */
+  --bs-tertiary-bg:              #333130;
+  --bs-secondary-bg:             #2E2C2A;
+
+  /* Tables */
+  --bs-table-bg:                 #2E2C2A;
+  --bs-table-striped-bg:         #333130;
+  --bs-table-hover-bg:           #383533;
+  --bs-table-color:              #F5F0EB;
+  --bs-table-border-color:       #403D3A;
+
+  /* Nav tabs */
+  --bs-nav-tabs-border-color:         #403D3A;
+  --bs-nav-tabs-link-active-bg:       #242220;
+  --bs-nav-tabs-link-active-color:    #C9A96E;
+  --bs-nav-tabs-link-active-border-color: #403D3A #403D3A #242220;
+  --bs-nav-link-color:                #9E9890;
+  --bs-nav-link-hover-color:          #C9A96E;
+
+  /* Border radius — uniformly rounded look across cards, modals, buttons */
+  --bs-border-radius:            0.875rem;
+  --bs-border-radius-sm:         0.625rem;
+  --bs-border-radius-lg:         1.25rem;
+  --bs-border-radius-xl:         1.5rem;
+  --bs-border-radius-pill:       9999px;
+
+  /* Shadows — warm brown tint instead of pure black so they sit naturally on the dark bg */
+  --bs-box-shadow:               0 0.125rem 0.375rem rgba(139, 90, 43, 0.15);
+  --bs-box-shadow-sm:            0 0.0625rem 0.25rem rgba(139, 90, 43, 0.10);
+  --bs-box-shadow-lg:            0 0.5rem 1.5rem rgba(139, 90, 43, 0.20);
+
+  /* Links */
+  --bs-link-color:               #C9A96E;
+  --bs-link-color-rgb:           201, 169, 110;
+  --bs-link-hover-color:         #b8945a;
+  --bs-link-hover-color-rgb:     184, 148, 90;
+
+  /* Inputs */
+  --bs-input-bg:                 #2E2C2A;
+  --bs-input-border-color:       #403D3A;
+  --bs-input-color:              #F5F0EB;
+  --bs-input-placeholder-color:  #9E9890;
+  --bs-input-focus-border-color: #C9A96E;
+}
+
+/* Sticky-footer flex layout (main expands to push the footer down). */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #242220;
+  color: #F5F0EB;
+}
+
+main {
+  flex: 1;
+}
+
+/* --bs-table-color must be set at the .table scope because Bootstrap re-declares it there. */
+.table {
+  --bs-table-color: #F5F0EB;
+}
+
+/* Table head: walk to <th> directly so specificity outweighs Bootstrap's own rule — no !important needed. */
+.table > thead > tr > th,
+.table thead.table-light > tr > th {
+  --bs-table-bg: #242220;
+  --bs-table-color: #C9A96E;
+  --bs-table-accent-bg: transparent;
+  background-color: #242220;
+  color: #C9A96E;
+  border-bottom: 1px solid #403D3A;
+  box-shadow: none;
+}
+
+/* Compact action buttons (Edit / Delete) inside table cells. */
+.table .btn-sm {
+  padding: 0.2rem 0.45rem;
+  font-size: 0.8rem;
+}
+
+/* Cards — warm-tinted shadow so they lift off the dark background. */
+.card {
+  box-shadow: 0 0.125rem 0.375rem rgba(139, 90, 43, 0.15);
+  border-color: #403D3A;
+}
+
+.card-header,
+.card-footer {
+  background-color: #333130;
+  border-color: #403D3A;
+}
+
+.modal-content {
+  background-color: #2E2C2A;
+  border-color: #403D3A;
+  box-shadow: 0 0.5rem 1.5rem rgba(139, 90, 43, 0.20);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: #403D3A;
+}
+
+.modal-backdrop {
+  background-color: #242220;
+}
+
+/* Form controls — set bg/border/color explicitly because some Bootstrap states bypass --bs-input-*. */
+.form-control,
+.form-select {
+  background-color: #2E2C2A;
+  border-color: #403D3A;
+  color: #F5F0EB;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #2E2C2A;
+  border-color: #C9A96E;
+  color: #F5F0EB;
+  box-shadow: 0 0 0 0.2rem rgba(201, 169, 110, 0.25);
+}
+
+.form-control::placeholder {
+  color: #9E9890;
+}
+
+.dropdown-menu {
+  background-color: #2E2C2A;
+  border-color: #403D3A;
+}
+
+.dropdown-item {
+  color: #F5F0EB;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #333130;
+  color: #C9A96E;
+}
+
+/* --bs-primary alone doesn't drive btn-primary's bg; each variant sets --bs-btn-* explicitly. */
+.btn-primary {
+  --bs-btn-bg:           #C9A96E;
+  --bs-btn-border-color: #C9A96E;
+  --bs-btn-color:        #242220;
+  --bs-btn-hover-bg:           #b8945a;
+  --bs-btn-hover-border-color: #b8945a;
+  --bs-btn-hover-color:        #242220;
+  --bs-btn-active-bg:          #a67d45;
+  --bs-btn-active-border-color:#a67d45;
+}
+
+.btn-outline-primary {
+  --bs-btn-color:        #C9A96E;
+  --bs-btn-border-color: #C9A96E;
+  --bs-btn-hover-bg:     #C9A96E;
+  --bs-btn-hover-color:  #242220;
+}
+
+.btn-danger {
+  --bs-btn-bg:           #E05C5C;
+  --bs-btn-border-color: #E05C5C;
+  --bs-btn-hover-bg:           #c94848;
+  --bs-btn-hover-border-color: #c94848;
+}
+
+.btn-outline-danger {
+  --bs-btn-color:        #E05C5C;
+  --bs-btn-border-color: #E05C5C;
+  --bs-btn-hover-bg:     #E05C5C;
+}
+
+.btn-secondary {
+  --bs-btn-bg:           #3A3734;
+  --bs-btn-border-color: #403D3A;
+  --bs-btn-color:        #F5F0EB;
+  --bs-btn-hover-bg:           #4a4744;
+  --bs-btn-hover-border-color: #4a4744;
+  --bs-btn-hover-color:        #F5F0EB;
+}
+
+.btn-outline-secondary {
+  --bs-btn-color:        #9E9890;
+  --bs-btn-border-color: #403D3A;
+  --bs-btn-hover-bg:     #3A3734;
+  --bs-btn-hover-color:  #F5F0EB;
+}
+
+/* Active tab uses the body bg so its bottom border merges visually with the pane below. */
+.nav-tabs .nav-link {
+  color: #9E9890;
+  border-color: transparent;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #C9A96E;
+  border-color: #403D3A #403D3A transparent;
+}
+
+.nav-tabs .nav-link.active {
+  color: #C9A96E;
+  background-color: #242220;
+  border-color: #403D3A #403D3A #242220;
+}
+
+/* Toasts — fixed top-right stack appended by showToast(); type drives the left-border accent. */
+#toastContainer {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  width: 320px;
+}
+
+.toast-msg {
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(139, 90, 43, 0.20);
+  border-left: 4px solid transparent;
+}
+
+.toast-success {
+  background-color: #2A3B2E;
+  border-left-color: #6DBF82;
+  color: #6DBF82;
+}
+
+.toast-error {
+  background-color: #3B2828;
+  border-left-color: #E05C5C;
+  color: #E05C5C;
+}
+
+.toast-info {
+  background-color: #28333B;
+  border-left-color: #6EB5C9;
+  color: #6EB5C9;
+}
+
+.toast-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+/* Query result sections — hidden until the relevant page JS removes .d-none. */
+.query-results {
+  margin-top: 1rem;
+}

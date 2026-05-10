@@ -1,0 +1,15 @@
+# Database credentials — never commit these
+db.properties
+application.properties
+
+# Maven build output
+target/
+
+# IntelliJ IDEA
+*.iml
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf/
+
+# OS
+.DS_Store
