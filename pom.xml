@@ -51,6 +51,9 @@
             <resource>
                 <directory>src/main/frontend</directory>
             </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
         </resources>
         <plugins>
             <plugin>
