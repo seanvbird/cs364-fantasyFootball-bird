@@ -1,113 +1,57 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/styles.css">
-  <title>Fantasy Football — Leagues</title>
-</head>
-<body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="js/leagues.js" type="module"></script>
+		<title>Leagues</title>
+	</head>
+	<body class="leaguesBody">
+		<main>
+			<div class="leaguesHeader">
+				<h1>
+					Leagues
+				</h1>
+				<button class="newLeagueButtonClass" id="new-league-button">
+					&#x2b New League
+				</button>
+			</div>
+			<table class="table">
+				<thead class="leaguesThead">
+					<tr class="tableHead">
+						<th>League Name</th>
+						<th>Season Year</th>
+						<th>Draft Date</th>
+						<th>Scoring Type</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody id="leaguesTableBody"></tbody>
+			</table>
+		</main>
 
-  <main class="container-fluid mt-4 mb-5">
 
-    <div class="row mb-3 align-items-center">
-      <div class="col">
-        <h1 class="h3 mb-0" id="leaguesPageHeader">Leagues</h1>
-      </div>
-      <div class="col-auto">
-        <button class="btn btn-primary" id="newLeagueBtn">+ New League</button>
-      </div>
-    </div>
+		<div class="modalContainer" id="modal-container">
+			<div class="modal" id="modal">
+				<label class="label">Enter a league name</label>
+				<input type="text" class="input" id="league-name-input">
+				<label class="label">Enter the year</label>
+				<input type="number" class="input" id="year-input">
+				<label class="label">Pick a draft date</label>
+				<input type="date" class="input" id="date-input">
+				<label class="label">Pick a scoring type</label>
+				<input type="text" class="input" id="scoring-type-input">
+				<div class="actionsButtons">
+					<button class="submitButton" id="submit-button">
+						Submit
+					</button>
+					<button class="cancelButton" id="cancel-button">
+						Cancel
+					</button>
+				</div>
+			</div>
+		</div>
 
-    <div class="card mb-4">
-      <div class="table-responsive">
-        <table class="table table-sm table-hover mb-0">
-          <thead class="table-light">
-            <tr>
-              <th scope="col">League Name</th>
-              <th scope="col">Season Year</th>
-              <th scope="col">Draft Date</th>
-              <th scope="col">Scoring Type</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="leaguesTableBody"></tbody>
-        </table>
-      </div>
-    </div>
+	</body>
 
-  </main>
-
-  <!-- League modal — same form for create and edit, branched by the hidden editingId -->
-  <div class="modal fade" id="leagueModal" tabindex="-1" aria-labelledby="leagueModalTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="leagueModalTitle">New League</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form id="leagueForm">
-          <div class="modal-body">
-            <input type="hidden" id="editingId">
-            <div class="mb-3">
-              <label for="leagueName" class="form-label">League Name</label>
-              <input type="text" id="leagueName" class="form-control" required maxlength="100">
-            </div>
-            <div class="mb-3">
-              <label for="seasonYear" class="form-label">Season Year</label>
-              <input type="number" id="seasonYear" class="form-control"
-                     required min="2000" max="2099" value="2025">
-            </div>
-            <div class="mb-3">
-              <label for="draftDate" class="form-label">Draft Date</label>
-              <input type="date" id="draftDate" class="form-control" required>
-            </div>
-            <div class="mb-3">
-              <label for="scoringType" class="form-label">Scoring Type</label>
-              <select id="scoringType" class="form-select" required>
-                <option value="">-- Select --</option>
-                <option value="standard">Standard</option>
-                <option value="ppr">PPR (Points Per Reception)</option>
-                <option value="half-ppr">Half PPR</option>
-              </select>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary" id="leagueModalSubmitBtn">Create</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Confirm Delete</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete <strong id="deleteTargetName"></strong>?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="toastContainer"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-          crossorigin="anonymous"></script>
-  <script type="module" src="/js/pages/leagues.js"></script>
-</body>
 </html>
