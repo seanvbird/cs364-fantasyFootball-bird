@@ -224,5 +224,326 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-top: 5px;
+}
 
+/*
+    Teams with rosters div
+*/
+
+.teamsBody {
+    padding: 50px;
+    padding-top: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;;
+    gap: 2em;
+}
+
+.teamNameH {
+    padding-top: 20px;
+    color: rgb(245, 240, 235);
+    font-weight: 800;
+}
+
+.rosterDiv {
+    border: solid 1px gray;
+    border-bottom: none;
+}
+
+.playerDiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: solid 1px gray;
+    padding-left: 10px;
+    ;
+}
+
+.playerColumn {
+    display: flex;
+}
+
+.playerNameColumn {
+    display: flex;
+    color: rgb(236, 191, 108);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/*
+    Shared control bar (team / week / filter pickers) used by the
+    lineup, matchups, and players pages.
+*/
+.controlBar {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 20px 50px;
+}
+
+.controlLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: rgb(236, 191, 108);
+    font-weight: 600;
+}
+
+.controlSelect {
+    background-color: rgb(36, 34, 32);
+    color: rgb(245, 240, 235);
+    border: solid 1px rgb(236, 191, 108);
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 100%;
+    min-width: 180px;
+}
+
+.primaryButton {
+    background-color: rgb(236, 191, 108);
+    color: rgb(36, 34, 32);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
+.primaryButton:hover {
+    opacity: 0.6;
+}
+.primaryButton:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.statusMessage {
+    padding: 0 50px;
+    color: rgb(236, 191, 108);
+    min-height: 1.2em;
+}
+
+/*
+    Lineup page: starters / bench sections and their rows.
+*/
+.lineupBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    padding: 0 50px 50px 50px;
+}
+
+.lineupSection {
+    border: solid 1px gray;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.lineupSectionTitle {
+    margin: 0 0 10px 0;
+    color: rgb(236, 191, 108);
+}
+
+.lineupRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 5px;
+    border-bottom: solid 1px gray;
+}
+
+.slotLabel {
+    width: 45px;
+    font-weight: 700;
+    color: rgb(236, 191, 108);
+}
+
+.lineupPlayer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.lineupPlayerName {
+    color: rgb(236, 191, 108);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.lineupPlayerMeta {
+    color: gray;
+    font-size: 85%;
+}
+
+.lineupEmptySlot {
+    flex: 1;
+    color: gray;
+    font-style: italic;
+}
+
+.lineupEmpty {
+    color: gray;
+}
+
+.startButton, .benchButton {
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.startButton {
+    background-color: rgb(236, 191, 108);
+    color: rgb(36, 34, 32);
+}
+.benchButton {
+    background-color: rgb(36, 34, 32);
+    color: rgb(236, 191, 108);
+    border: solid 1px rgb(236, 191, 108);
+}
+.startButton:hover, .benchButton:hover {
+    opacity: 0.6;
+}
+.startButton:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/*
+    Matchups page: one card per game, winner side highlighted.
+*/
+.matchupsBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    padding: 0 50px 50px 50px;
+}
+
+.matchupCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px gray;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 15px;
+}
+
+.matchupSide {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+}
+.matchupSide:last-child {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.matchupTeam {
+    font-weight: 600;
+}
+
+.matchupScore {
+    color: gray;
+    font-size: 110%;
+}
+
+.matchupWinner .matchupTeam,
+.matchupWinner .matchupScore {
+    color: rgb(236, 191, 108);
+    font-weight: 800;
+}
+
+.matchupVs {
+    color: gray;
+    font-size: 85%;
+}
+
+/*
+    Players page: table of all/free-agent/rostered players.
+*/
+.playersBody {
+    padding: 0 50px 50px 50px;
+}
+
+.playersTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+.playersTable thead tr {
+    text-align: left;
+    border: 2px solid gray;
+    color: rgb(236, 191, 108);
+}
+.playersTable th, .playersTable td {
+    padding: 8px 5px;
+}
+.playerRow {
+    border: 1px solid gray;
+}
+
+.playerLink {
+    color: rgb(236, 191, 108);
+    font-weight: 600;
+    cursor: pointer;
+}
+.playerLink:hover {
+    opacity: 0.7;
+}
+
+.addButton {
+    background-color: rgb(236, 191, 108);
+    color: rgb(36, 34, 32);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.addButton:hover {
+    opacity: 0.6;
+}
+
+/*
+    Shared modal content: title, message, and the weekly-stats table.
+*/
+.modalTitle {
+    color: rgb(236, 191, 108);
+    font-size: 130%;
+    font-weight: 800;
+    margin: 0;
+}
+
+.modalMessage {
+    color: rgb(245, 240, 235);
+    text-align: center;
+    margin: 0;
+}
+
+.statsTableWrap {
+    width: 100%;
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+.statsTable {
+    width: 100%;
+    border-collapse: collapse;
+    color: rgb(245, 240, 235);
+}
+.statsTable th {
+    position: sticky;
+    top: 0;
+    background-color: rgb(36, 34, 32);
+    color: rgb(236, 191, 108);
+    text-align: right;
+    padding: 6px 8px;
+    border-bottom: solid 1px gray;
+}
+.statsTable td {
+    text-align: right;
+    padding: 5px 8px;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.3);
+}
+.statEmptyRow td {
+    color: gray;
 }
