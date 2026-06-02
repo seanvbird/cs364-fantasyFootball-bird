@@ -74,6 +74,7 @@ function headRow(...values) {
     const tr = document.createElement('tr');
     for(const value of values) {
         const th = document.createElement('th');
+        th.classList.add('thPlayers');
         th.textContent = value;
         tr.append(th);
     }

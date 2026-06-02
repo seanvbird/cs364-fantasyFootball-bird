@@ -315,11 +315,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: not-allowed;
 }
 
-.statusMessage {
-    padding: 0 50px;
-    color: rgb(236, 191, 108);
-    min-height: 1.2em;
-}
+
 
 /*
     Lineup page: starters / bench sections and their rows.
@@ -461,6 +457,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /*
     Players page: table of all/free-agent/rostered players.
 */
+
+.thPlayers {
+    text-align: left;
+}
 .playersBody {
     padding: 0 50px 50px 50px;
 }
