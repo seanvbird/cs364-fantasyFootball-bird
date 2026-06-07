@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 // Row for each player in a roster, used by TeamWithRoster entity in a list for the entire roster
-// Used in RosterDatabase
+// Used in TeamsDatabase
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

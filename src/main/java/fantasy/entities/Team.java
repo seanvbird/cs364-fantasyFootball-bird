@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 // Row in the Team table
-// Used in TeamDatabase, RosterDatabase
+// Used in TeamsDatabase
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -44,7 +44,7 @@ async function init() {
     weekSelect.value = REGULAR_SEASON_WEEKS;
 
     try {
-        teamsData = await API.getJSON(`/rosters/by-league?leagueId=${leagueId}`);
+        teamsData = await API.getJSON(`/teams/rosters?leagueId=${leagueId}`);
     }catch(err) {
         console.error('Failed to load teams: ', err.message);
         return;

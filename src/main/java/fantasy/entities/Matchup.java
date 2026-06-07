@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 // Row in the Matchup table
-// Used in MatchupDatabase, TeamDatabase
+// Used in MatchupsDatabase
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

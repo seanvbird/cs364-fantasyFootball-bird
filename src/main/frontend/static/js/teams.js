@@ -20,7 +20,7 @@ loadNavbar();
 
 async function loadTeams() {
     try {
-        const teams = await API.getJSON(`/rosters/by-league?leagueId=${leagueId}`);
+        const teams = await API.getJSON(`/teams/rosters?leagueId=${leagueId}`);
         renderTeams(teams);
     }catch(err) {
         console.error('Failed to load leagues: ', err.message);

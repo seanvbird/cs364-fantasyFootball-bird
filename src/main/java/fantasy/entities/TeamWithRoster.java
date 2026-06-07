@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 // Contains the team plus its active roster
-// Used in RosterDatabase
+// Used in TeamsDatabase
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

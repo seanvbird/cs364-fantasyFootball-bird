@@ -32,7 +32,7 @@ export function openModal(...nodes) {
 export async function openPlayerStatsModal(playerId, playerName) {
     let stats;
     try {
-        stats = await API.getJSON(`/stats?playerId=${playerId}`);
+        stats = await API.getJSON(`/players/stats?playerId=${playerId}`);
     }catch(err) {
         console.error('Failed to load stats: ', err.message);
         return;

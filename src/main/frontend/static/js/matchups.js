@@ -28,7 +28,7 @@ async function init() {
 
     try {
         matchups = await API.getJSON(`/matchups?leagueId=${leagueId}`);
-        const teams = await API.getJSON(`/rosters/by-league?leagueId=${leagueId}`);
+        const teams = await API.getJSON(`/teams/rosters?leagueId=${leagueId}`);
         for(const t of teams) {
             teamNames.set(t.teamId, t.teamName);
         }

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 // Row in the PlayerStats table. A player's weekly fantasy stats
-// Used in PlayerStatsDatabase
+// Used in PlayersDatabase
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

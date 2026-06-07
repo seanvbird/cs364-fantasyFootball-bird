@@ -30,7 +30,7 @@ function loadNavbar() {
 async function loadData() {
     allPlayers = await API.getJSON('/players');
     rosteredPlayers = await API.getJSON(`/players/league-rostered?leagueId=${leagueId}`);
-    teamsData = await API.getJSON(`/rosters/by-league?leagueId=${leagueId}`);
+    teamsData = await API.getJSON(`/teams/rosters?leagueId=${leagueId}`);
 
     const freeAgents = await API.getJSON(`/players/free-agents?leagueId=${leagueId}`);
     freeAgentIds = new Set(freeAgents.map(p => p.playerId));
@@ -177,7 +177,7 @@ function pickerLabel(text) {
 // Posts the roster addition, then refreshes so the player leaves the free-agent list.
 async function confirmAdd(player, teamId, acquiredWeek, addMessage) {
     try {
-        await API.postJSON('/rosters', { teamId, playerId: player.playerId, acquiredWeek });
+        await API.postJSON('/teams/roster', { teamId, playerId: player.playerId, acquiredWeek });
         closeModal();
         message.textContent = `Added ${player.firstName} ${player.lastName}.`;
         await loadData();
