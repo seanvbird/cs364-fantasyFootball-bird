@@ -74,7 +74,7 @@ public class TeamsDatabase {
     // Returns every team in the league with its active roster
     // Gets the teams first and then calls getByTeamId for each team to attach the roster
     public List<TeamWithRoster> getTeamsWithActiveRosters(int leagueId) {
-        String teamSql = "SELECT team_id, team_name "
+        String teamSql = "SELECT team_id, team_name, owner_name "
                        + "FROM team "
                        + "WHERE league_id = ? "
                        + "ORDER BY team_name";
@@ -85,9 +85,11 @@ public class TeamsDatabase {
                 while(rs.next()) {
                     int teamId = rs.getInt("team_id");
                     String teamName = rs.getString("team_name");
+                    String ownerName = rs.getString("owner_name");
                     teams.add(new TeamWithRoster(
                         teamId,
                         teamName,
+                        ownerName,
                         getByTeamId(teamId)
                     ));
                 }

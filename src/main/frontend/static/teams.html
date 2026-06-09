@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/styles.css">
 		<script src="js/teams.js" type="module"></script>
 		<title>Teams</title>
@@ -23,6 +24,14 @@
             </nav>
         </header>
         
+        <section class="controlBar">
+            <button class="primaryButton" id="add-team-button">&#x2b; Add Team</button>
+            <label class="controlLabel">Delete team
+                <select class="controlSelect" id="delete-team-select"></select>
+            </label>
+            <button class="primaryButton" id="delete-team-button">Delete</button>
+        </section>
+
         <main>
             <section class="teamsBody" id="teams-body"></section>
         </main>

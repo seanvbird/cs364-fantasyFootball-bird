@@ -15,5 +15,6 @@ public class TeamWithRoster {
 
     private int teamId;
     private String teamName;
+    private String ownerName;
     private List<RosterPlayer> roster;
 }
